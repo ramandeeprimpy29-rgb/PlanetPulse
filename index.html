@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PlanetPulse | Personal Carbon Intelligence</title>
+
+    <meta
+        name="description"
+        content="PlanetPulse helps you track, understand and reduce your personal carbon footprint."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<header class="navbar" id="navbar">
+
+    <div class="nav-container">
+
+        <a href="#dashboard" class="brand">
+            <span class="brand-icon">🌍</span>
+
+            <span class="brand-text">
+                <strong>PlanetPulse</strong>
+                <small>Climate Intelligence</small>
+            </span>
+        </a>
+
+        <nav class="nav-links" id="navLinks">
+
+            <a href="#dashboard" class="nav-link active">
+                Dashboard
+            </a>
+
+            <a href="#insights" class="nav-link">
+                Insights
+            </a>
+
+            <a href="#whatif" class="nav-link">
+                What-If
+            </a>
+
+            <a href="#log" class="nav-link">
+                Log Activity
+            </a>
+
+            <a href="#history" class="nav-link">
+                History
+            </a>
+
+        </nav>
+
+        <a href="#log" class="nav-cta">
+            + Log Activity
+        </a>
+
+        <button
+            class="mobile-menu"
+            id="mobileMenu"
+            aria-label="Open navigation menu"
+        >
+            ☰
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main>
+
+
+<!-- =========================================================
+     DASHBOARD / HERO
+========================================================= -->
+
+<section id="dashboard" class="hero-section">
+
+    <div class="hero-container">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+                PERSONAL CARBON INTELLIGENCE
+            </div>
+
+            <h1>
+                Understand your footprint.
+                <span>Change your impact.</span>
+            </h1>
+
+            <p class="hero-description">
+                Track everyday activities, see where your emissions
+                come from, and explore practical alternatives.
+            </p>
+
+            <div class="hero-actions">
+
+                <a href="#log" class="primary-button">
+                    + Log an Activity
+                </a>
+
+                <a href="#insights" class="secondary-button">
+                    Explore My Impact
+                    <span>→</span>
+                </a>
+
+            </div>
+
+            <div class="hero-features">
+
+                <span>✓ Track</span>
+                <span>✓ Understand</span>
+                <span>✓ Improve</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- Planet visual -->
+
+        <div class="hero-visual">
+
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+            <div class="orbit orbit-three"></div>
+
+            <div class="planet">
+                🌍
+            </div>
+
+            <div class="floating-leaf leaf-one">
+                🍃
+            </div>
+
+            <div class="floating-leaf leaf-two">
+                🌱
+            </div>
+
+            <div class="floating-leaf leaf-three">
+                🌿
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Climate pulse strip -->
+
+    <div class="pulse-strip">
+
+        <div class="pulse-item">
+
+            <span class="pulse-icon">📅</span>
+
+            <div>
+                <small>CLIMATE PULSE</small>
+                <strong>This Week</strong>
+            </div>
+
+        </div>
+
+        <div class="pulse-divider"></div>
+
+        <div class="pulse-item">
+            <span>🌱</span>
+            <strong id="pulseActivities">0 activities</strong>
+        </div>
+
+        <div class="pulse-divider"></div>
+
+        <div class="pulse-item">
+            <span>🎯</span>
+            <strong id="pulseTarget">Target 50 kg</strong>
+        </div>
+
+        <a href="#log" class="pulse-action">
+            Start tracking →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     STAT CARDS
+========================================================= -->
+
+<section class="stats-section">
+
+    <div class="section-container stats-grid">
+
+        <div class="stat-card">
+
+            <div class="stat-top">
+                <span>ALL TIME</span>
+                <div class="stat-icon">🌍</div>
+            </div>
+
+            <h2 id="totalCO2">0.00 kg</h2>
+
+            <p>
+                Total carbon footprint recorded
+            </p>
+
+        </div>
+
+
+        <div class="stat-card featured">
+
+            <div class="stat-top">
+                <span>THIS WEEK</span>
+                <div class="stat-icon">📊</div>
+            </div>
+
+            <h2 id="weeklyCO2">0.00 kg</h2>
+
+            <p>
+                Your emissions this week
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-top">
+                <span>WEEKLY TARGET</span>
+                <div class="stat-icon">🎯</div>
+            </div>
+
+            <h2 id="targetCO2">50.00 kg</h2>
+
+            <p>
+                Your personal weekly goal
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     WEEKLY PROGRESS
+========================================================= -->
+
+<section class="section-block progress-section">
+
+    <div class="section-container">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-label">YOUR WEEK</span>
+
+                <h2>Weekly progress</h2>
+
+                <p id="weekText">
+                    Loading your current week...
+                </p>
+            </div>
+
+            <div class="status-pill" id="targetStatus">
+                On track
+            </div>
+
+        </div>
+
+
+        <div class="progress-card">
+
+            <div class="progress-info">
+
+                <div>
+                    <span>CARBON USED</span>
+                    <strong id="progressText">
+                        0.00 kg
+                    </strong>
+                </div>
+
+                <div class="progress-percentage">
+                    <strong id="progressPercent">0%</strong>
+                </div>
+
+            </div>
+
+            <div class="progress-track">
+
+                <div
+                    class="progress-bar"
+                    id="progressBar"
+                    style="width: 0%"
+                ></div>
+
+                <div
+                    class="progress-target-marker"
+                    id="progressTarget"
+                ></div>
+
+            </div>
+
+            <div class="progress-bottom">
+
+                <span>0 kg</span>
+
+                <span>
+                    Target:
+                    <strong id="progressTargetText">50 kg</strong>
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     INSIGHTS
+========================================================= -->
+
+<section id="insights" class="section-block insights-section">
+
+    <div class="section-container">
+
+        <div class="section-heading centered">
+
+            <span class="section-label">
+                SMART INSIGHTS
+            </span>
+
+            <h2>
+                Turn data into action
+            </h2>
+
+            <p>
+                PlanetPulse looks at your activities and highlights
+                practical ways to reduce your footprint.
+            </p>
+
+        </div>
+
+
+        <div class="insights-grid">
+
+            <!-- Recommendation -->
+
+            <div class="insight-card recommendation-card">
+
+                <div class="card-icon green">
+                    🌱
+                </div>
+
+                <span class="mini-label">
+                    TODAY'S FOCUS
+                </span>
+
+                <h3 id="insightTitle">
+                    Start tracking your impact
+                </h3>
+
+                <p id="insightText">
+                    Log your everyday activities to receive
+                    personalized carbon reduction suggestions.
+                </p>
+
+                <a href="#whatif" class="text-link">
+                    Explore alternatives →
+                </a>
+
+            </div>
+
+
+            <!-- Week comparison -->
+
+            <div class="insight-card">
+
+                <div class="insight-card-top">
+
+                    <div>
+                        <span class="mini-label">
+                            WEEK OVER WEEK
+                        </span>
+
+                        <h3>Your progress</h3>
+                    </div>
+
+                    <span class="large-icon">
+                        📈
+                    </span>
+
+                </div>
+
+                <div
+                    class="comparison-number"
+                    id="comparisonValue"
+                >
+                    --
+                </div>
+
+                <p id="comparisonText">
+                    Add activities to compare your current
+                    week with the previous week.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Emission sources -->
+
+        <div class="breakdown-card">
+
+            <div class="section-heading compact">
+
+                <div>
+                    <span class="section-label">
+                        EMISSION SOURCES
+                    </span>
+
+                    <h3>
+                        Where your footprint comes from
+                    </h3>
+                </div>
+
+                <span class="breakdown-caption">
+                    CO₂ breakdown
+                </span>
+
+            </div>
+
+            <div id="categoryChart" class="category-chart">
+
+                <div class="empty-state">
+                    <div class="empty-icon">🌿</div>
+
+                    <h4>
+                        No activities recorded yet.
+                    </h4>
+
+                    <p>
+                        Start logging activities to see your breakdown.
+                    </p>
+
+                    <a href="#log" class="small-button">
+                        Log first activity
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     WHAT-IF
+========================================================= -->
+
+<section id="whatif" class="section-block whatif-section">
+
+    <div class="section-container">
+
+        <div class="section-heading centered">
+
+            <span class="section-label">
+                WHAT-IF SIMULATOR
+            </span>
+
+            <h2>
+                See the impact before you change
+            </h2>
+
+            <p>
+                Compare two everyday choices and estimate
+                the potential carbon difference.
+            </p>
+
+        </div>
+
+
+        <div class="whatif-card">
+
+            <div class="choice-grid">
+
+                <!-- Current -->
+
+                <div class="choice-box">
+
+                    <span class="choice-label">
+                        CURRENT CHOICE
+                    </span>
+
+                    <label for="whatIfCurrent">
+                        Activity
+                    </label>
+
+                    <select id="whatIfCurrent">
+
+                        <option value="car">
+                            🚗 Car Travel
+                        </option>
+
+                        <option value="bus">
+                            🚌 Bus Travel
+                        </option>
+
+                        <option value="flight">
+                            ✈️ Flight
+                        </option>
+
+                        <option value="electricity">
+                            ⚡ Electricity
+                        </option>
+
+                        <option value="veg_meal">
+                            🥗 Vegetarian Meal
+                        </option>
+
+                        <option value="nonveg_meal">
+                            🍗 Non-Vegetarian Meal
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="choice-arrow">
+                    ↓
+                </div>
+
+
+                <!-- Alternative -->
+
+                <div class="choice-box alternative">
+
+                    <span class="choice-label">
+                        ALTERNATIVE
+                    </span>
+
+                    <label for="whatIfAlternative">
+                        Try instead
+                    </label>
+
+                    <select id="whatIfAlternative">
+
+                        <option value="bus">
+                            🚌 Bus Travel
+                        </option>
+
+                        <option value="car">
+                            🚗 Car Travel
+                        </option>
+
+                        <option value="flight">
+                            ✈️ Flight
+                        </option>
+
+                        <option value="electricity">
+                            ⚡ Electricity
+                        </option>
+
+                        <option value="veg_meal">
+                            🥗 Vegetarian Meal
+                        </option>
+
+                        <option value="nonveg_meal">
+                            🍗 Non-Vegetarian Meal
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="whatif-bottom">
+
+                <div class="quantity-control">
+
+                    <label for="whatIfQuantity">
+                        Quantity
+                    </label>
+
+                    <div class="quantity-input">
+
+                        <input
+                            type="number"
+                            id="whatIfQuantity"
+                            min="0.1"
+                            step="0.1"
+                            value="10"
+                        >
+
+                        <span id="whatIfUnit">
+                            km
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="primary-button"
+                    id="calculateWhatIf"
+                >
+                    Calculate impact →
+                </button>
+
+            </div>
+
+
+            <!-- Result -->
+
+            <div
+                class="whatif-result"
+                id="whatIfResult"
+            >
+
+                <div class="result-icon">
+                    🌎
+                </div>
+
+                <div>
+
+                    <span>
+                        WHAT COULD YOU SAVE?
+                    </span>
+
+                    <h3 id="whatIfTitle">
+                        Choose two activities and calculate
+                        the potential CO₂ reduction.
+                    </h3>
+
+                    <p id="whatIfDetails">
+                        Your comparison will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     DAILY LOG
+========================================================= -->
+
+<section id="log" class="section-block log-section">
+
+    <div class="section-container">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    DAILY LOG
+                </span>
+
+                <h2>
+                    Record an activity
+                </h2>
+
+                <p>
+                    Add an everyday activity to calculate its
+                    estimated carbon footprint.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <form id="activityForm" class="activity-form">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label for="activityType">
+                        Activity
+                    </label>
+
+                    <select id="activityType" required>
+
+                        <option value="">
+                            Select activity
+                        </option>
+
+                        <option value="car">
+                            🚗 Car Travel
+                        </option>
+
+                        <option value="bus">
+                            🚌 Bus Travel
+                        </option>
+
+                        <option value="flight">
+                            ✈️ Flight
+                        </option>
+
+                        <option value="electricity">
+                            ⚡ Electricity
+                        </option>
+
+                        <option value="veg_meal">
+                            🥗 Vegetarian Meal
+                        </option>
+
+                        <option value="nonveg_meal">
+                            🍗 Non-Vegetarian Meal
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="quantity">
+                        Quantity
+                    </label>
+
+                    <input
+                        type="number"
+                        id="quantity"
+                        min="0.1"
+                        step="0.1"
+                        placeholder="e.g. 10"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="unit">
+                        Unit
+                    </label>
+
+                    <input
+                        type="text"
+                        id="unit"
+                        value="—"
+                        readonly
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="activityDate">
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="activityDate"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- Estimate -->
+
+            <div class="impact-preview">
+
+                <div class="preview-icon">
+                    🌱
+                </div>
+
+                <div>
+
+                    <span>
+                        ESTIMATED IMPACT
+                    </span>
+
+                    <strong id="preview">
+                        0.00 kg CO₂
+                    </strong>
+
+                    <p>
+                        Your estimate is calculated using
+                        PlanetPulse emission factors.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-actions">
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                >
+                    Add to PlanetPulse →
+                </button>
+
+                <span
+                    class="form-message"
+                    id="message"
+                ></span>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     IMPACT JOURNEY
+========================================================= -->
+
+<section class="section-block journey-section">
+
+    <div class="section-container">
+
+        <div class="section-heading centered">
+
+            <span class="section-label">
+                YOUR IMPACT JOURNEY
+            </span>
+
+            <h2>
+                Track. Understand. Improve.
+            </h2>
+
+            <p>
+                Small changes become meaningful when you can
+                see and measure them.
+            </p>
+
+        </div>
+
+
+        <div class="journey-grid">
+
+            <div class="journey-card">
+
+                <span class="journey-number">
+                    01
+                </span>
+
+                <div class="journey-icon">
+                    📝
+                </div>
+
+                <h3>
+                    Track
+                </h3>
+
+                <p>
+                    Record transport, energy and food activities
+                    from your everyday life.
+                </p>
+
+            </div>
+
+
+            <div class="journey-card">
+
+                <span class="journey-number">
+                    02
+                </span>
+
+                <div class="journey-icon">
+                    🔎
+                </div>
+
+                <h3>
+                    Understand
+                </h3>
+
+                <p>
+                    Discover which categories contribute most
+                    to your personal footprint.
+                </p>
+
+            </div>
+
+
+            <div class="journey-card">
+
+                <span class="journey-number">
+                    03
+                </span>
+
+                <div class="journey-icon">
+                    🌱
+                </div>
+
+                <h3>
+                    Improve
+                </h3>
+
+                <p>
+                    Explore alternatives and see how different
+                    choices could reduce emissions.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PERSONAL GOAL
+========================================================= -->
+
+<section class="section-block goal-section">
+
+    <div class="section-container">
+
+        <div class="goal-card">
+
+            <div class="goal-content">
+
+                <span class="section-label">
+                    PERSONAL GOAL
+                </span>
+
+                <h2>
+                    Set your weekly carbon target
+                </h2>
+
+                <p>
+                    Choose a target that helps you stay aware
+                    of your weekly footprint.
+                </p>
+
+            </div>
+
+
+            <form id="targetForm" class="target-form">
+
+                <div class="target-input">
+
+                    <input
+                        type="number"
+                        id="weeklyTarget"
+                        min="1"
+                        step="0.1"
+                        value="50"
+                        required
+                    >
+
+                    <span>
+                        kg CO₂ / week
+                    </span>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="secondary-button"
+                >
+                    Update target
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     HISTORY
+========================================================= -->
+
+<section id="history" class="section-block history-section">
+
+    <div class="section-container">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    ACTIVITY HISTORY
+                </span>
+
+                <h2>
+                    Your carbon log
+                </h2>
+
+                <p>
+                    Review the activities you've recorded.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="history-card">
+
+            <div class="filters">
+
+                <div class="filter-group">
+
+                    <label for="filterType">
+                        Activity
+                    </label>
+
+                    <select id="filterType">
+
+                        <option value="">
+                            All activities
+                        </option>
+
+                        <option value="car">
+                            Car
+                        </option>
+
+                        <option value="bus">
+                            Bus
+                        </option>
+
+                        <option value="flight">
+                            Flight
+                        </option>
+
+                        <option value="electricity">
+                            Electricity
+                        </option>
+
+                        <option value="veg_meal">
+                            Vegetarian Meal
+                        </option>
+
+                        <option value="nonveg_meal">
+                            Non-Vegetarian Meal
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="filter-group">
+
+                    <label for="filterStart">
+                        From
+                    </label>
+
+                    <input
+                        type="date"
+                        id="filterStart"
+                    >
+
+                </div>
+
+
+                <div class="filter-group">
+
+                    <label for="filterEnd">
+                        To
+                    </label>
+
+                    <input
+                        type="date"
+                        id="filterEnd"
+                    >
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="clear-button"
+                    id="clearFilters"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Date</th>
+                            <th>Activity</th>
+                            <th>Quantity</th>
+                            <th>Category</th>
+                            <th>CO₂</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="historyBody">
+
+                        <tr>
+
+                            <td
+                                colspan="5"
+                                class="table-loading"
+                            >
+                                Loading activity history...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-brand">
+
+            <div class="brand">
+                <span class="brand-icon">🌍</span>
+
+                <span class="brand-text">
+                    <strong>PlanetPulse</strong>
+                    <small>Personal Carbon Intelligence</small>
+                </span>
+            </div>
+
+            <p>
+                Make everyday choices measurable.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="#dashboard">Dashboard</a>
+            <a href="#insights">Insights</a>
+            <a href="#whatif">What-If</a>
+            <a href="#log">Log Activity</a>
+            <a href="#history">History</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 PlanetPulse
+        </span>
+
+        <span>
+            Built for a lower-carbon future 🌱
+        </span>
+
+    </div>
+
+</footer>
+
+
+<!-- Back to top -->
+
+<a
+    href="#dashboard"
+    class="back-to-top"
+    id="backToTop"
+    aria-label="Back to dashboard"
+>
+    ↑
+</a>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
