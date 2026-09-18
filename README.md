@@ -1,50 +1,39 @@
 # 🌍 PlanetPulse
 
-### Personal Carbon Footprint Tracker
+## Personal Carbon Footprint Tracker
 
-PlanetPulse is a climate-tech web application that helps users **track, understand, and reduce their personal carbon footprint**.
+PlanetPulse is a climate-tech web application that helps users track and understand their personal carbon footprint based on everyday activities.
 
-## ✨ Features
+### ✨ Features
 
-- 📊 Personal carbon footprint dashboard
-- 🚗 Track transport emissions
-- ⚡ Track electricity consumption
-- 🍽️ Track food-related emissions
+- 📊 Carbon footprint dashboard
+- 🚗 Transport emission tracking
+- ⚡ Electricity emission tracking
+- 🍽️ Food emission tracking
 - 📈 Weekly carbon footprint progress
-- 💡 Smart recommendations for reducing emissions
+- 💡 Smart emission-reduction recommendations
 - 🔄 Week-over-week comparison
-- 🧪 What-If carbon reduction simulator
+- 🧪 What-If emission simulator
 - 🎯 Personal weekly carbon target
 - 📜 Activity history
 
-## 🛠️ Technologies Used
+### 🛠️ Technologies
 
-- **Python**
-- **Flask**
-- **SQLite**
-- **HTML5**
-- **CSS3**
-- **JavaScript**
+- Python
+- Flask
+- SQLite
+- HTML5
+- CSS3
+- JavaScript
 
-## 🎯 Purpose
+### 🎯 Objective
 
-PlanetPulse turns everyday activities into understandable carbon-emission insights, helping users make more environmentally conscious decisions.
+The objective of PlanetPulse is to convert everyday activities into understandable carbon-emission information and provide users with practical ways to reduce their environmental impact.
 
-## 🚀 Project Structure
-
-PlanetPulse/
-├── app.py
-├── requirements.txt
-├── templates/
-│   └── index.html
-└── static/
-    ├── style.css
-    └── script.js
-
-## 🌱 Vision
+### 🌱 Vision
 
 **Track your impact. Understand your footprint. Change your future.**
 
 ---
 
-Made with 🌍 for a more sustainable future.
+**PlanetPulse — Personal Carbon Footprint Tracker 🌍**
